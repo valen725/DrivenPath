@@ -130,7 +130,6 @@ def update_datetime(file_name: str, run: str) -> None:
         logging.info("Updated accessed timestamp.")
 
 
-
 if __name__ == "__main__":
 
     # Logging starting of the process.
@@ -139,7 +138,7 @@ if __name__ == "__main__":
     # Define the output file name with today's date.
     output_file = f"chapter_2/src_2/data_2/batch_{date.today()}.csv"
 
-
+  
     # Define number of records: first run - 10_372; next runs random number.
     if str(date.today()) == "2024-09-14":
         records = random.randint(100_372, 100_372)
