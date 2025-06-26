@@ -172,3 +172,25 @@ def update_datetime(file_name: str, run: str) -> None:
 
         # Log the action
         logging.info("Updated accessed_at timestamp with yesterday's date.")
+
+if __name__ == "__main__":
+    # Logging starting of the process.
+    logging.info(f"Started batch processing for {date.today()}.")
+    # Define the output file name with today's date.
+    output_file = f"chapter_2/src_2/data_2/batch_{date.today()}.csv"
+    # Define number of records: first run - 10_372; next runs random number.
+    if str(date.today()) == "2024-09-14":
+        records = random.randint(100_372, 100_372)
+        run_type = "first"
+    else:
+        records = random.randint(0, 1_101)
+        run_type = "next"
+
+    # Generate and write records to the CSV.
+    write_to_csv(f"{output_file}", records)
+    # Add UUID to dataset.
+    add_id(output_file)
+    # Update the timestamp.
+    update_datetime(output_file, run_type)
+    # Logging ending of the process.
+    logging.info(f"Finished batch processing {date.today()}.")
